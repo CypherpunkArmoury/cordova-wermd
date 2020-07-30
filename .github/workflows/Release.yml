@@ -1,0 +1,12 @@
+name: Create Archive
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - run: zip release.zip * -r
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Upload Artifact
+        path: ./
